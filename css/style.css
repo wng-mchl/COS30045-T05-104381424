@@ -1,0 +1,212 @@
+:root {
+  --bg: #f4f6fb;
+  --card-bg: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --accent: #14306b;
+  --radius: 16px;
+  --shadow: 0 1px 3px rgba(16, 24, 40, 0.06), 0 4px 16px rgba(16, 24, 40, 0.06);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+}
+
+/* Header: full-width dark blue bar holding the page title */
+.site-header {
+  background: var(--accent);
+  color: #ffffff;
+  padding: 28px 24px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: 2.25rem;
+  letter-spacing: -0.02em;
+}
+
+/* 2x2 grid */
+.grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* lets charts shrink inside the grid */
+}
+
+
+
+.card h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  color: var(--accent);
+}
+
+.card-sub {
+  margin: 2px 0 16px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Chart placeholder: D3 draws into these containers */
+.chart {
+  flex: 1;
+  min-height: 320px;
+  border: 2px dashed var(--border);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.chart:empty::before {
+  content: "Chart goes here";
+}
+
+/* Once a chart is drawn, drop the placeholder look */
+.chart:not(:empty) {
+  display: block;
+  border: none;
+  min-height: 0;
+}
+
+.chart svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* D3 chart styling */
+.axis text {
+  fill: var(--muted);
+  font-size: 11px;
+}
+
+.axis path,
+.axis line {
+  stroke: var(--border);
+}
+
+.axis-label {
+  fill: var(--text);
+  font-size: 12px;
+}
+
+.dot {
+  fill: var(--accent);
+  fill-opacity: 0.45;
+  stroke: var(--accent);
+  stroke-width: 1;
+}
+
+.dot:hover {
+  fill-opacity: 0.9;
+}
+
+.slice {
+  stroke: #ffffff;
+  stroke-width: 2;
+}
+
+.slice:hover {
+  opacity: 0.85;
+}
+
+.line {
+  fill: none;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.line-dot:hover {
+  r: 5;
+}
+
+.bar {
+  fill: var(--accent);
+}
+
+.bar:hover {
+  opacity: 0.85;
+}
+
+.bar-label {
+  fill: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+  pointer-events: none;
+}
+
+.slice-label {
+  font-size: 14px;
+  font-weight: 600;
+  pointer-events: none; /* so hovering over the number still triggers the slice tooltip */
+}
+
+.centre-text {
+  fill: var(--accent);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.centre-sub,
+.legend-text {
+  fill: var(--muted);
+  font-size: 13px;
+}
+
+.tooltip {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  background: var(--accent);
+  color: #ffffff;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+/* Footer */
+.site-footer {
+  text-align: center;
+  padding: 16px 24px 40px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* Stack on smaller screens */
+@media (max-width: 800px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .site-header h1 {
+    font-size: 1.75rem;
+  }
+}

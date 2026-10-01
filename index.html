@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week5 Televisions</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <h1>Week5 Televisions</h1>
+  </header>
+
+  <main class="grid">
+
+    <section class="card">
+      <h2>Energy consumption vs. star rating</h2>
+      <p class="card-sub">Each dot is one TV model.</p>
+      <div class="chart" id="scatter-chart"></div>
+    </section>
+
+    <section class="card">
+      <h2>Energy use by screen technology</h2>
+      <p class="card-sub">Average yearly kWh across all TV sizes.</p>
+      <div class="chart" id="donut-chart"></div>
+    </section>
+
+    <section class="card">
+      <h2>Energy use for 55&quot; TVs</h2>
+      <p class="card-sub">Average yearly kWh by screen technology.</p>
+      <div class="chart" id="bar-chart"></div>
+    </section>
+
+    <section class="card">
+      <h2>Spot power prices, 1998&ndash;2024</h2>
+      <p class="card-sub">Average yearly price by state, in $ per MWh.</p>
+      <div class="chart" id="line-chart"></div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    COS30045 Data Visualisation &middot; Week 5
+  </footer>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
